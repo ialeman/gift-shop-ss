@@ -1,0 +1,47 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" [routerLink]="['/']"
+        style="display: flex; align-items: center;gap: 10px;">
+        <i class="fa fa-gift"></i> {{ 'app.NAME' | translate }}
+    </a>
+    <app-title class="navbar-text"></app-title>
+    <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <button class="btn btn-link nav-link" (click)="logOut()">
+                <i class="fas fa-sign-out-alt"></i>
+                {{ 'app.LOG_OUT' | translate }}</button>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <!-- <ul class="nav flex-column">
+                <li class="nav-item" *ngFor="let item of navItems">
+                <a class="nav-link" [routerLink]="item.route" [routerLinkActive]="['active']">
+                {{ item.name | translate }} <span class="sr-only">(current)</span>
+                </a>
+                </li>
+                </ul>
+                -->
+                <h4 class="text-center">Categories</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item" *ngFor="let item of navItems">
+                        <a class="nav-link" [routerLink]="item.route" [routerLinkActive]="['active']">
+                            {{ item.name | translate }} <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="version">
+                    <app-version></app-version>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>

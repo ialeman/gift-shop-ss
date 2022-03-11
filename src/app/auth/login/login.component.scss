@@ -1,0 +1,70 @@
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  position: relative;
+
+  .checkbox {
+    font-weight: 400;
+  }
+  .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-control:focus {
+    z-index: 2;
+  }
+  input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+// .login--main{
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+// }
+
+.bg-init{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #EBF3F4;
+  z-index: 0;
+}
+
+.app-version{
+    position: relative;
+}
+
+.btn-login {
+    background: #BB6260 !important;
+    color: #EBF3F4;
+    // font-weight: bold;
+}
+
+.showPassword{
+  position: relative;
+  z-index: 1;
+
+  .icon-show-password{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+  }
+}
