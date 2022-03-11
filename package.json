@@ -29,6 +29,8 @@
     "bootstrap": "^4.3.1",
     "core-js": "^3.2.1",
     "ngx-toastr": "^10.1.0",
+    "primeicons": "^5.0.0",
+    "primeng-lts": "^8.2.9",
     "rxjs": "^6.5.2",
     "tslib": "^1.10.0",
     "zone.js": "^0.10.2"

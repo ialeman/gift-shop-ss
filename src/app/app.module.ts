@@ -14,10 +14,17 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { MenuItem } from 'primeng/api';
 
 
 @NgModule({
-    declarations: [AppComponent, MainComponent, ErrorComponent, HomeComponent],
+    declarations: [
+        AppComponent,
+        MainComponent,
+        ErrorComponent,
+        HomeComponent,
+    ],
     imports: [
         HttpClientModule,
         FormsModule,
@@ -27,7 +34,9 @@ import { MainComponent } from './main/main.component';
         BrowserAnimationsModule,
         AppRoutingModule,
         CoreModule,
-        SharedModule
+        SharedModule,
+
+        BreadcrumbModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

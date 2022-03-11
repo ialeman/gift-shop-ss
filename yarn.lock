@@ -6167,6 +6167,16 @@
   "resolved" "https://registry.npmjs.org/prettier/-/prettier-1.19.1.tgz"
   "version" "1.19.1"
 
+"primeicons@^5.0.0":
+  "integrity" "sha512-heygWF0X5HFI1otlZE62pp6ye7sZ8om78J9au2BRkg8O7Y8AHTZ9qKMRzchZUHLe8zUAvdi6hZzzm9XxgwIExw=="
+  "resolved" "https://registry.npmjs.org/primeicons/-/primeicons-5.0.0.tgz"
+  "version" "5.0.0"
+
+"primeng-lts@^8.2.9":
+  "integrity" "sha512-YuEHU6WiNim/5GBapfjtYtDN3L1WwfqifygzsdKKEzXOlDa+dXtneXFqpqnFElCBW2+azvm/ftB/c3SCL6JFOg=="
+  "resolved" "https://registry.npmjs.org/primeng-lts/-/primeng-lts-8.2.9.tgz"
+  "version" "8.2.9"
+
 "private@^0.1.6":
   "integrity" "sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg=="
   "resolved" "https://registry.npmjs.org/private/-/private-0.1.8.tgz"

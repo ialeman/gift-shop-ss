@@ -22,13 +22,18 @@ const routes: Routes = [
         },
         children: [
             {
-                path: 'examples',
+                path: 'products',
                 component: LayoutComponent,
-                loadChildren: './examples/examples.module#ExamplesModule',
-                data: {
-                    title: 'examples.$TITLE'
-                }
+                loadChildren: './products/products.module#ProductsModule'
             },
+            // {
+            //     path: 'examples',
+            //     component: LayoutComponent,
+            //     loadChildren: './examples/examples.module#ExamplesModule',
+            //     data: {
+            //         title: 'examples.$TITLE'
+            //     }
+            // },
         ]
     },
     {

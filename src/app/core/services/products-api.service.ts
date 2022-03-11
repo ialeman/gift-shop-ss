@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ProductApi } from '../../common/models/product-api';
+import { ProductApi } from '../../products/entities/product-api';
 
 const header = {
   headers: new HttpHeaders({

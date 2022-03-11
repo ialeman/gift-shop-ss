@@ -11,6 +11,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es5",
+    "paths": {
+      "primeng/*": [
+        "node_modules/primeng-lts/*"
+      ]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],

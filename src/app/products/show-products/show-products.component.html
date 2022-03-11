@@ -1,0 +1,66 @@
+<p-dataView #dv [value]="productsList" [paginator]="true" [rows]="10" layout="grid">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4">
+                    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+                        (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+                </div>
+                <div class="ui-g-6 ui-md-4 filter-container">
+                    <div style="position:relative">
+                        <input type="search" pInputText placeholder="Search by brand"
+                            (keyup)="dv.filter($event.target.value)">
+                    </div>
+                </div>
+                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+            </div>
+        </div>
+    </p-header>
+    <ng-template let-prod pTemplate="listItem">
+        <div class="col-12 menu-list-main">
+            <div class="product-list-item">
+                <img [src]="prod.image" alt="Bamboo Watch">
+                <div class="product-list-detail">
+                    <div class="product-name">{{prod.title}}</div>
+                    <p-rating [ngModel]="prod.rating.rate" readonly="true" stars="5" [cancel]="false"
+                        style="margin: auto">
+                    </p-rating>
+                    <i class="pi pi-tag product-category-icon"></i>
+                    <span class="product-category">{{prod.category}}</span>
+                </div>
+                <div class="product-list-action"><span class="product-price">${{prod.price}}</span>
+                    <button pButton icon="pi pi-shopping-cart" label="Add to Cart"></button>
+                    <span class="product-badge status-instock">INSTOCK</span>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template let-prod pTemplate="gridItem">
+        <div class="ui-g-12 ui-md-4">
+            <div class="card mb-4">
+                <div class="top-brand">
+                    <div class="category-tag">
+                        <i class="pi pi-tag"></i>
+                        <span>{{prod.category}}</span>
+                    </div>
+                    <span class="product-badge status-instock">INSTOCK</span>
+                </div>
+                <div class="card-image">
+                    <img [src]="prod.image" [alt]="prod.title">
+                </div>
+                <div class="product-info mt-3">
+                    <h5 class="text-center" [title]="prod.title">{{prod.title}}</h5>
+                    <p-rating [ngModel]="prod.rating.rate" readonly="true" stars="5" [cancel]="false"
+                        style="margin: auto"></p-rating>
+                </div>
+                <div class="product-purchase">
+                    <span>${{prod.price}}</span>
+                    <button pButton icon="pi pi-shopping-cart" class=""></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataView>
+<div class="mb-5"></div>
