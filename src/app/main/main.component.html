@@ -1,23 +1,40 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" [routerLink]="['/']"
-        style="display: flex; align-items: center;gap: 10px;">
-        <i class="fa fa-gift"></i> {{ 'app.NAME' | translate }}
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
+
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0 navbar-shop" [routerLink]="['/']">
+        <i class="pi pi-heart-fill"></i> {{ 'app.NAME' | translate }}
     </a>
+
     <!-- <app-title class="navbar-text"></app-title> -->
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <div class="search-view">
+        <input class="form-control form-control-dark w-100 ml-2" type="text" placeholder="Search product..." aria-label="Search">
+        <i class="s-icon pi pi-search" ></i>
+    </div>
 
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <button class="btn btn-link nav-link" (click)="logOut()">
-                <i class="fas fa-sign-out-alt"></i>
-                {{ 'app.LOG_OUT' | translate }}</button>
+            <div class="split-view user-info">
+                <i class="pi pi-user"></i>
+                <div class="split-v-child">
+                    <span>Welcome</span>
+                    <label>Sing in / Register</label>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item text-nowrap">
+            <div class="cart-shop">
+                <i class="pi pi-shopping-cart"></i>
+                <div class="cart-shop-info">
+                    <span>2 items</span>
+                    <label><span>MXN</span> $9,870</label>
+                </div>
+            </div>
         </li>
     </ul>
 </nav>
 
 <div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <div class="row mt-3">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar mt-3">
             <div class="sidebar-sticky">
                 <!-- <ul class="nav flex-column">
                 <li class="nav-item" *ngFor="let item of navItems">
@@ -42,7 +59,7 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-3">
-            <p-breadcrumb [model]="items" ></p-breadcrumb>
+            <p-breadcrumb [model]="items"></p-breadcrumb>
             <div class="mb-3"></div>
             <router-outlet></router-outlet>
         </main>
