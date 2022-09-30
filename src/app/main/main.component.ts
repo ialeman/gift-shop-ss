@@ -18,26 +18,22 @@ export class MainComponent implements OnInit {
     //     { name: 'examples.$TITLE', route: '' }
     // ];
     items: MenuItem[];
-    categoriesList: Categories[];
-
+    
     constructor(
         private _authService: AuthService,
-        private _categoriesService: CategoriesService,
         private _router: Router
     ) { }
 
     ngOnInit(): void {
-        this._categoriesService.getCategories().then(res => this.categoriesList = res);
         this.items = [
             { icon: 'pi pi-home' },
             { label: 'Products' }
         ];
         
-        this._router.navigate(['/products']);
+        //this._router.navigate(['/products']);
     }
 
     logOut() {
         this._authService.logOut();
-
     }
 }

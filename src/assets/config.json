@@ -1,4 +1,4 @@
 {
-  "apiUrl": "https://localhost:5001",
-  "assetsUrl": "https://localhost:5001/assets"
+  "apiUrl": "https://localhost:44383",
+  "assetsUrl": "https://localhost:44383/assets"
 }

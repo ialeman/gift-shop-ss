@@ -1,6 +1,5 @@
 <div class="bg-init"></div>
 <div [ngSwitch]="currentStage" class="login--main">
-
     <div *ngSwitchCase="Stage.Login">
 
         <form [formGroup]="form" (ngSubmit)="submit()" autocomplete="off" class="form-signin">

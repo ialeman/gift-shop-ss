@@ -1,0 +1,41 @@
+<p-table #dt [value]="categoriesList" selectionMode="single" [(selection)]="categorieSelected" dataKey="id">
+    <ng-template pTemplate="caption">
+        <div style="display: flex;justify-content: space-between;">
+            <div class="b-options">
+                <button pButton class="ui-button-secondary" icon="pi pi-plus" [routerLink]="['/categories/add']"
+                    label="New Category">
+                </button>
+                <button pButton class="ui-button-secondary" icon="pi pi-pencil" (click)="sendToEdit()"
+                    [disabled]="!categorieSelected" label="Edit Category">
+                </button>
+                <button pButton class="ui-button-secondary" icon="pi pi-trash" [disabled]="!categorieSelected"
+                    label="Delete Category">
+                </button>
+            </div>
+            <div style="text-align: right">
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50" placeholder="Global Filter"
+                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Icon</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-columns="columns">
+        <tr [pSelectableRow]="data">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td><i [class]="data.icon" class="mr-2"></i> {{data.icon}}</td>
+        </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="summary">
+                <div style="text-align: left">
+                    Selected Car: {{selectedCar1 ? selectedCar.vin + ' - ' + selectedCar1.brand + ' - ' + selectedCar1.year + ' - ' + selectedCar1.color: 'none'}}
+                </div>
+            </ng-template> -->
+</p-table>

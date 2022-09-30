@@ -30,7 +30,6 @@ export class AuthState implements OnDestroy {
     public get isAuthenticated(): boolean {
         if(localStorage.getItem('amodel')){
             let aModel = JSON.parse(atob(localStorage.getItem('amodel')));
-            console.log(aModel);
             this.set(aModel);
         }
         return this._latestOrAnonymous.value !== anonymous;

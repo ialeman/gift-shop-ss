@@ -5,7 +5,7 @@ export interface ProductApi {
     title: string;
     price: number;
     description: string;
-    category: string;
+    category: any;
     image: string;
-    rating: Rating;
+    rating: number;
 }

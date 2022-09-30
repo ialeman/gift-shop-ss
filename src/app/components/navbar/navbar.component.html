@@ -1,0 +1,44 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
+
+    <a class="navbar-brand col-sm-3 col-md-2 mr-2 navbar-shop" [routerLink]="['/']">
+        <i class="pi pi-heart-fill"></i> {{ 'app.NAME' | translate }}
+    </a>
+
+    <!-- <app-title class="navbar-text"></app-title> -->
+    <div class="search-view">
+        <input class="form-control form-control-dark w-100 ml-2" type="text" placeholder="Search product..."
+            aria-label="Search">
+        <i class="s-icon pi pi-search"></i>
+    </div>
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap" *ngIf="!userInfo" [routerLink]="['/auth/login']" >
+            <div class="split-view user-info">
+                <i class="pi pi-user"></i>
+                <div class="split-v-child">
+                    <span>Welcome</span>
+                    <label >Sing in / Register</label>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item text-nowrap" *ngIf="userInfo" [routerLink]="['/products/add-product']" >
+            <div class="split-view user-info">
+                <i class="pi pi-user"></i>
+                <div class="split-v-child">
+                    <span>Welcome</span>
+                    <label>{{userInfo.email}}</label>
+                </div>
+            </div>
+        </li>
+        
+        <li class="nav-item text-nowrap" [routerLink]="['/cart']" >
+            <div class="cart-shop">
+                <i class="pi pi-shopping-cart"></i>
+                <div class="cart-shop-info" *ngIf="cartInfo">
+                    <span>{{cartInfo.items}} items</span>
+                    <label><span>{{cartInfo.currency}}</span> {{cartInfo.totalPrice | currency}}</label>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>

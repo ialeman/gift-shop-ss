@@ -7,10 +7,10 @@
                         (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
                 </div>
                 <div class="ui-g-6 ui-md-4 filter-container">
-                    <div style="position:relative">
+                    <!-- <div style="position:relative">
                         <input type="search" pInputText placeholder="Search by brand"
                             (keyup)="dv.filter($event.target.value)">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">
                     <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
@@ -24,11 +24,11 @@
                 <img [src]="prod.image" alt="Bamboo Watch">
                 <div class="product-list-detail">
                     <div class="product-name">{{prod.title}}</div>
-                    <p-rating [ngModel]="prod.rating.rate" readonly="true" stars="5" [cancel]="false"
+                    <p-rating [ngModel]="prod.rating" readonly="true" stars="5" [cancel]="false"
                         style="margin: auto">
                     </p-rating>
                     <i class="pi pi-tag product-category-icon"></i>
-                    <span class="product-category">{{prod.category}}</span>
+                    <span class="product-category">{{prod.category.name}}</span>
                 </div>
                 <div class="product-list-action"><span class="product-price">${{prod.price}}</span>
                     <button pButton icon="pi pi-shopping-cart" label="Add to Cart"></button>
@@ -43,7 +43,7 @@
                 <div class="top-brand">
                     <div class="category-tag">
                         <i class="pi pi-tag"></i>
-                        <span>{{prod.category}}</span>
+                        <span>{{prod.category.name}}</span>
                     </div>
                     <span class="product-badge status-instock">INSTOCK</span>
                 </div>
@@ -52,12 +52,12 @@
                 </div>
                 <div class="product-info mt-3">
                     <h5 class="text-center" [title]="prod.title">{{prod.title}}</h5>
-                    <p-rating [ngModel]="prod.rating.rate" readonly="true" stars="5" [cancel]="false"
+                    <p-rating [ngModel]="prod.rating" readonly="true" stars="5" [cancel]="false"
                         style="margin: auto"></p-rating>
                 </div>
                 <div class="product-purchase">
                     <span>${{prod.price}}</span>
-                    <button pButton icon="pi pi-shopping-cart" class=""></button>
+                    <button pButton icon="pi pi-shopping-cart" (click)="addToCart(prod)"></button>
                 </div>
             </div>
         </div>

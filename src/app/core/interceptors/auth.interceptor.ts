@@ -12,18 +12,20 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private _redirectService: RedirectService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    request = request.clone({
-      withCredentials: true
-    });
+    // request = request.clone({
+    //   withCredentials: true
+    // });
 
-    return next.handle(request).pipe(catchError(err => {
-      // check for unauthorized error and redirect to login page.
-      if (err instanceof HttpErrorResponse) {
-        if (err.status === 401) {
-          this._redirectService.toLogin(true, RedirectReason.Unauthorized);
-        }
-      }
-      return throwError(err);
-    }));
+    return next.handle(request);
+    // return next.handle(request).pipe(catchError(err => {
+    //   // check for unauthorized error and redirect to login page.
+    //   console.log(err);
+    //   if (err instanceof HttpErrorResponse) {
+    //     if (err.status === 401) {
+    //       this._redirectService.toLogin(true, RedirectReason.Unauthorized);
+    //     }
+    //   }
+    //   return throwError(err);
+    // }));
   }
 }

@@ -14,6 +14,13 @@ export class CategoriesService {
         @Inject(API_URL) apiUrl: string
     ) { this._url = `${apiUrl}/api/categories`; }
 
+    add(model: any){
+        return this.http.post(this._url, model);
+    }
+
+    edit(model: any){
+        return this.http.put(this._url, model);
+    }
 
     getCategories() {
         return this.http.get(this._url).toPromise()

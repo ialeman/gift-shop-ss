@@ -14,7 +14,7 @@ export class CardTitleDirective {
   animations: [cardToggle, cardClose],
   encapsulation: ViewEncapsulation.None
 })
-export class CardComponent implements AfterContentChecked {
+export class CardComponent /* implements AfterContentChecked */ {
 
   private _collapsed: boolean;
   private _collapsedClass: string;
@@ -86,9 +86,9 @@ export class CardComponent implements AfterContentChecked {
     this.loading = false;
   }
 
-  ngAfterContentChecked(): void {
-    this.titleTpl = this.titleTpls.first;
-  }
+  // ngAfterContentChecked(): void {
+  //   this.titleTpl = this.titleTpls.first;
+  // }
 
   toggle() {
     this.setCollapsed(!this.collapsed);

@@ -15,9 +15,14 @@ export class ProductsService {
         @Inject(API_URL) apiUrl: string
     ) { this._url = `${apiUrl}/api/products`; }
 
+
+    add(model: any){
+        return this.http.post<any>(this._url, model);
+    }
+
     getProducts() {
-        return this.http.get("../assets/products.json").toPromise()
-            .then((res: any) => <ProductApi[]> res)
+        return this.http.get(this._url).toPromise()
+            .then((res: any) => <ProductApi[]>res)
             .then(data => {
                 return data;
             });

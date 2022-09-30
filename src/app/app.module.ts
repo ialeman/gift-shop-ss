@@ -14,9 +14,19 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+import { CategoriesAddComponent } from './categories/categories-add/categories-add.component';
+
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuItem } from 'primeng/api';
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import { CartViewComponent } from './cart-view/cart-view.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +34,11 @@ import { MenuItem } from 'primeng/api';
         MainComponent,
         ErrorComponent,
         HomeComponent,
+        NavbarComponent,
+        SidebarComponent,
+        CategoriesListComponent,
+        CategoriesAddComponent,
+        CartViewComponent,
     ],
     imports: [
         HttpClientModule,
@@ -37,6 +52,11 @@ import { MenuItem } from 'primeng/api';
         SharedModule,
 
         BreadcrumbModule,
+        MessagesModule,
+        MessageModule,
+        TableModule,
+        ButtonModule,
+        InputTextModule
     ],
     providers: [],
     bootstrap: [AppComponent],

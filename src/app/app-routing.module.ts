@@ -5,9 +5,13 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
 import { ErrorComponent } from './error/error.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { MainComponent } from './main/main.component';
+import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+import { CategoriesAddComponent } from './categories/categories-add/categories-add.component';
+import { CartViewComponent } from './cart-view/cart-view.component';
 
 
 const routes: Routes = [
+    // { path: '**', component: ErrorComponent },
     {
         path: 'auth',
         component: LayoutComponent,
@@ -24,16 +28,30 @@ const routes: Routes = [
             {
                 path: 'products',
                 component: LayoutComponent,
-                loadChildren: './products/products.module#ProductsModule'
+                // loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+                loadChildren:  './products/products.module#ProductsModule'
             },
-            // {
-            //     path: 'examples',
-            //     component: LayoutComponent,
-            //     loadChildren: './examples/examples.module#ExamplesModule',
-            //     data: {
-            //         title: 'examples.$TITLE'
-            //     }
-            // },
+            {
+                path: 'categories',
+                children: [
+                    {
+                        path: '',
+                        component: CategoriesListComponent
+                    },
+                    {
+                        path: 'add',
+                        component: CategoriesAddComponent
+                    },
+                    {
+                        path: 'edit',
+                        component: CategoriesAddComponent
+                    }
+                ]
+            },
+            {
+                path: 'cart',
+                component: CartViewComponent
+            }
         ]
     },
     {
