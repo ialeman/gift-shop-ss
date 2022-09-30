@@ -66,7 +66,7 @@ export class ShowProductsComponent implements OnInit {
             products = cart.products;
             products.push(product);
 
-            localStorage.setItem('cart', JSON.stringify(cart));
+            // localStorage.setItem('cart', JSON.stringify(cart));
             this._cartService.updateCart(cart);
         }
 

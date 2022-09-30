@@ -5,7 +5,8 @@ import { CartService } from '../../core/services/cart.service';
 export interface CartInfo {
   items: number,
   totalPrice: number,
-  currency: string
+  currency: string,
+  products?: any[]
 }
 
 @Component({

@@ -17,6 +17,7 @@ const routes: Routes = [
         component: LayoutComponent,
         loadChildren: './auth/auth.module#AuthModule'
     },
+    
     {
         path: '',
         component: MainComponent,
@@ -25,6 +26,11 @@ const routes: Routes = [
             title: 'app.HOME'
         },
         children: [
+            {
+                path: '',
+                redirectTo: '/products',
+                pathMatch: 'full'
+            },
             {
                 path: 'products',
                 component: LayoutComponent,

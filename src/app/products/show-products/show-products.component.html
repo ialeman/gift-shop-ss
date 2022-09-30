@@ -52,7 +52,7 @@
                 </div>
                 <div class="product-info mt-3">
                     <h5 class="text-center" [title]="prod.title">{{prod.title}}</h5>
-                    <p-rating [ngModel]="prod.rating" readonly="true" stars="5" [cancel]="false"
+                    <p-rating [(ngModel)]="prod.rating" readonly="true" stars="5" [cancel]="false"
                         style="margin: auto"></p-rating>
                 </div>
                 <div class="product-purchase">

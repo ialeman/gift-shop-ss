@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +17,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { CategoriesAddComponent } from './categories/categories-add/categories-add.component';
+import { CartViewComponent } from './cart-view/cart-view.component';
+
 
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuItem } from 'primeng/api';
@@ -26,7 +27,10 @@ import {MessageModule} from 'primeng/message';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
-import { CartViewComponent } from './cart-view/cart-view.component';
+import {CarouselModule} from 'primeng/carousel';
+import {RatingModule} from 'primeng/rating';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
     declarations: [
@@ -56,9 +60,14 @@ import { CartViewComponent } from './cart-view/cart-view.component';
         MessageModule,
         TableModule,
         ButtonModule,
-        InputTextModule
+        InputTextModule,
+        CarouselModule,
+        RatingModule,
+        ConfirmDialogModule
     ],
-    providers: [],
+    providers: [
+        ConfirmationService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule { }

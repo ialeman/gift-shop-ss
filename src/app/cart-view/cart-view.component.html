@@ -1,32 +1,112 @@
 <div class="row">
     <div class="col-md-8">
-        <div class="card" style="border-radius: 20px;">
+        <div class="card mb-2" style="border-radius: 20px;" *ngFor="let prod of repeatedProduct">
             <div class="card-body">
                 <div class="cart-view">
                     <div class="row">
-                        <div class="col-md-4">
-                            <img [src]="'https://c1.neweggimages.com/ProductImageCompressAll1280/20-236-426-02.jpg'"
-                                alt="" width="100%">
+                        <div class="col-md-3">
+                            <img [src]="prod.image" alt="" width="100%">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             <div class="cart-info">
-                                <h5>CORSAIR Vengeance RGB Pro 16GB (2 x 8GB) 288-Pin DDR4 DRAM DDR4 3000 (PC4 24000)
-                                    Desktop Memory Model CMW16GX4M2D3000C16</h5>
-                                <p>
-                                    Dynamic Multi-Zone RGB Lighting: 10 Ultra-bright RGB LEDs per module.
-                                    Next Generation Software: Take control in CORSAIR iCUE software and synchronize
-                                    lighting with other CORSAIR RGB products, including CPU coolers, keyboards and fans.
-                                    Custom Performance PCB: Provides the highest signal quality for the greatest level
-                                    of performance and stability.
-                                </p>
+                                <h5>{{prod.title}}</h5>
+                                <p>{{prod.description}}</p>
+                                <span><b>{{prod.price | currency}}</b></span>
+
+                                <div class="mt-2">
+                                    <input type="number" class="form-control text-center" style="width: 80px;"
+                                        [value]="prod.items">
+                                </div>
+
+                                <div class="remove-button">
+                                    <button class="btn btn-secondary" (click)="confirmDelete(prod)" >
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <p-carousel [value]="productsList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1"
+                    [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+                    <!-- <p-header>
+                        <h3>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h3>
+                    </p-header> -->
+                    <ng-template let-prod pTemplate="item">
+                        <div class="car-details">
+                            <div class="p-grid p-nogutter">
+                                <div class="p-col-12 p-2">
+                                    <img [src]="prod.image" style="width: 200px;object-fit: cover;" alt="noscript" />
+                                </div>
+                                <div class="p-col-12 car-data">
+                                    <div class="car-title">{{prod.title}}</div>
+                                    <div class="car-subtitle"><span>{{prod.price | currency}}</span></div>
 
+                                    <p-rating [(ngModel)]="prod.rating" readonly="true" stars="5" [cancel]="false"
+                                        style="margin: auto"></p-rating>
+
+                                    <div class="car-buttons">
+                                        <div class="product-purchase">
+                                            <button pButton icon="pi pi-shopping-cart"></button>
+                                        </div>
+                                        <!-- <button pButton type="button" class="ui-button-secondary"
+                                            icon="pi pi-search"></button>
+                                        <button pButton type="button" class="ui-button-secondary"
+                                            icon="pi pi-star"></button>
+                                        <button pButton type="button" class="ui-button-secondary"
+                                            icon="pi pi-cog"></button> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-carousel>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 ">
+        <div class="card">
+            <div class="card-header">
+                Order Summary
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item">
+                        <div style="display: flex;justify-content: space-between;">
+                            <span>Subtotal</span>
+                            <span><b>{{orderSummary.subtotal | currency}}</b></span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div style="display: flex;justify-content: space-between;">
+                            <span>IVA</span>
+                            <span><b>{{orderSummary.iva | currency}}</b></span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div style="display: flex;justify-content: space-between;">
+                            <span>Total</span>
+                            <span><b>{{orderSummary.total | currency}}</b></span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn btn-primary">Secure Checkout</button>
+            </div>
+            <!-- <div class="card-footer text-muted">
+                <div style="display: flex;justify-content: space-between;">
+                    <span>Payable Total</span>
+                    <span><b>$7777</b></span>
+                </div>
+            </div> -->
+        </div>
     </div>
 </div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

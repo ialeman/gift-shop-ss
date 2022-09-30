@@ -12,6 +12,7 @@ export class CartService {
   constructor() { }
 
   public updateCart(cart){
+    localStorage.setItem('cart', JSON.stringify(cart));
     this.cartSubject.next(cart);
   }
 
